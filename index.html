@@ -602,116 +602,6 @@ body{
     }
 }
 
-/* NEXT PAGE */
-
-.continue-btn{
-    position:absolute;
-
-    left:50%;
-    top:calc(50% + 190px);
-
-    transform:translateX(-50%);
-
-    z-index:60;
-
-    padding:12px 24px;
-
-    border:1px solid rgba(255,180,200,.35);
-
-    border-radius:50px;
-
-    background:rgba(255,255,255,.06);
-
-    backdrop-filter:blur(15px);
-
-    color:#e8bdc8;
-
-    text-decoration:none;
-
-    font-family:"Cinzel",serif;
-
-    font-size:10px;
-
-    letter-spacing:3px;
-
-    opacity:0;
-
-    transition:.4s;
-
-    animation:continueAppear 2s ease 6s forwards;
-
-    white-space:nowrap;
-}
-
-.continue-btn:hover{
-    opacity:1;
-
-    background:rgba(255,100,140,.14);
-
-    transform:
-        translateX(-50%)
-        translateY(-3px)
-        scale(1.04);
-
-    box-shadow:
-        0 10px 30px rgba(255,80,130,.15);
-}
-
-@keyframes continueAppear{
-    from{
-        opacity:0;
-        transform:
-            translateX(-50%)
-            translateY(15px);
-    }
-
-    to{
-        opacity:.75;
-        transform:
-            translateX(-50%)
-            translateY(0);
-    }
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-    .subtitle{
-        letter-spacing:4px;
-    }
-
-    .message{
-        padding:0 20px;
-    }
-
-    .emojis{
-        letter-spacing:4px;
-    }
-
-    .flower{
-        font-size:38px;
-    }
-
-    .continue-btn{
-        left:50%;
-        top:calc(50% + 185px);
-
-        bottom:auto;
-
-        transform:translateX(-50%);
-
-        white-space:nowrap;
-    }
-
-    .continue-btn:hover{
-        transform:
-            translateX(-50%)
-            translateY(-3px)
-            scale(1.04);
-    }
-}
-
 </style>
 </head>
 
@@ -814,12 +704,6 @@ body{
     <div class="heart" style="left:68%;animation-delay:2s;">💖</div>
     <div class="heart" style="left:88%;animation-delay:5s;">💗</div>
 
-    <!-- NEXT -->
-
-    <a href="memories.html" class="continue-btn">
-        ✦ There's more for you! ✦
-    </a>
-
 </div>
 
 <script>
@@ -847,6 +731,10 @@ for(let i=0;i<70;i++){
 
     scene.appendChild(particle);
 }
+
+setTimeout(() => {
+    window.location.href = "memories.html";
+}, 10000);
 
 </script>
 
