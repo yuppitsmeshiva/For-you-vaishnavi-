@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Memories 🍉</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    
+    background:#07191a;
+    color:#fff;
+
+    font-family:"Cormorant Garamond",serif;
+
+    overflow-x:hidden;
+}
+
+.page{
+    min-height:100vh;
+
+    position:relative;
+
+    background:
+
+    radial-gradient(
+        circle at 50% 20%,
+        rgba(255,184,108,.20),
+        transparent 35%
+    ),
+
+    linear-gradient(
+        180deg,
+        #102e2d 0%,
+        #183c38 35%,
+        #0b2425 70%,
+        #061416 100%
+    );
+}
+
+/* GRAIN */
+
+.grain{
+    position:fixed;
+
+    inset:-50%;
+
+    pointer-events:none;
+
+    z-index:100;
+
+    opacity:.08;
+
+    background-image:url(
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"
+    );
+
+    animation:grain .2s steps(2) infinite;
+}
+
+@keyframes grain{
+    0%{transform:translate(0,0);}
+    25%{transform:translate(2%,-2%);}
+    50%{transform:translate(-2%,2%);}
+    75%{transform:translate(2%,2%);}
+    100%{transform:translate(-2%,-2%);}
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+
+    min-height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.sun{
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+        circle,
+        #ffd99b,
+        #ffad6e 35%,
+        rgba(255,120,80,.15) 65%,
+        transparent 70%
+    );
+
+    filter:blur(4px);
+
+    bottom:-180px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    opacity:.8;
+}
+
+.hero-content{
+    position:relative;
+
+    z-index:5;
+
+    animation:heroIn 2s ease forwards;
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+        filter:blur(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+}
+
+.eyebrow{
+    font-family:"Playfair Display",serif;
+
+    font-size:14px;
+
+    letter-spacing:6px;
+
+    text-transform:uppercase;
+
+    color:#e8c995;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:"DM Serif Display",serif;
+
+    font-size:clamp(55px,10vw,130px);
+
+    font-weight:400;
+
+    font-style:italic;
+
+    line-height:.9;
+
+    color:#fff5dc;
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.4),
+        0 0 50px rgba(255,190,100,.15);
+}
+
+.hero h2{
+    font-family:"Caveat",cursive;
+
+    font-size:clamp(45px,8vw,90px);
+
+    font-weight:500;
+
+    color:#ffca91;
+
+    margin-top:15px;
+
+    transform:rotate(-3deg);
+}
+
+.hero-line{
+    width:250px;
+
+    height:1px;
+
+    background:#e4bd7e;
+
+    margin:30px auto;
+}
+
+.scroll{
+    position:absolute;
+
+    bottom:35px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    color:#d4c5a7;
+
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translate(-50%,0);
+    }
+
+    50%{
+        transform:translate(-50%,8px);
+    }
+}
+
+/* MEMORIES */
+
+.memories{
+    padding:120px 7vw;
+
+    position:relative;
+}
+
+.section-title{
+    text-align:center;
+
+    margin-bottom:80px;
+}
+
+.section-title span{
+    display:block;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:14px;
+
+    letter-spacing:5px;
+
+    color:#e2b979;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+}
+
+.section-title h2{
+    font-family:"DM Serif Display",serif;
+
+    font-size:clamp(40px,7vw,80px);
+
+    font-weight:400;
+
+    font-style:italic;
+
+    color:#fff2d8;
+}
+
+/* COLLAGE */
+
+.collage{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr 1fr;
+
+    grid-template-rows:250px 320px 230px 260px;
+
+    gap:18px;
+}
+
+.photo{
+    position:relative;
+
+    overflow:hidden;
+
+    background:#173433;
+
+    border:8px solid rgba(255,245,220,.85);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4),
+        0 3px 0 rgba(255,255,255,.2);
+
+    opacity:0;
+
+    transform:
+        translateY(50px)
+        rotate(var(--rotation));
+
+    animation:
+        photoIn 1s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.photo:nth-child(1){
+    grid-column:1 / 2;
+    grid-row:1 / 3;
+    --rotation:-2deg;
+    animation-delay:.2s;
+    border-radius:4px 18px 8px 14px;
+}
+
+.photo:nth-child(2){
+    grid-column:2 / 4;
+    grid-row:1 / 2;
+    --rotation:1.5deg;
+    animation-delay:.4s;
+    border-radius:18px 5px 14px 8px;
+}
+
+.photo:nth-child(3){
+    grid-column:2 / 3;
+    grid-row:2 / 4;
+    --rotation:-1deg;
+    animation-delay:.6s;
+    border-radius:50%;
+}
+
+.photo:nth-child(4){
+    grid-column:3 / 4;
+    grid-row:2 / 3;
+    --rotation:2deg;
+    animation-delay:.8s;
+    border-radius:10px 24px 6px 18px;
+}
+
+.photo:nth-child(5){
+    grid-column:1 / 2;
+    grid-row:3 / 4;
+    --rotation:1deg;
+    animation-delay:1s;
+    border-radius:22px 6px 16px 8px;
+}
+
+.photo:nth-child(6){
+    grid-column:3 / 4;
+    grid-row:3 / 4;
+    --rotation:-2deg;
+    animation-delay:1.2s;
+    border-radius:50%;
+}
+
+.photo:nth-child(7){
+    grid-column:1 / 2;
+    grid-row:4 / 5;
+    --rotation:-1.5deg;
+    animation-delay:1.4s;
+    border-radius:8px 18px 24px 5px;
+}
+
+.photo:nth-child(8){
+    grid-column:2 / 3;
+    grid-row:4 / 5;
+    --rotation:2deg;
+    animation-delay:1.6s;
+    border-radius:16px 5px 20px 10px;
+}
+
+.photo:nth-child(9){
+    grid-column:3 / 4;
+    grid-row:4 / 5;
+    --rotation:-2deg;
+    animation-delay:1.8s;
+    border-radius:12px 22px 6px 18px;
+}
+
+.photo:nth-child(10){
+    grid-column:1 / 4;
+    grid-row:5 / 6;
+    --rotation:.5deg;
+    animation-delay:2s;
+    border-radius:28px 8px 18px 6px;
+}
+
+@keyframes photoIn{
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            rotate(var(--rotation));
+    }
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform 1s ease;
+}
+
+.photo:hover img{
+    transform:scale(1.08);
+}
+
+.photo::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,200,120,.08),
+            transparent 50%,
+            rgba(0,0,0,.2)
+        );
+
+    pointer-events:none;
+}
+
+/* CAPTIONS */
+
+.caption{
+    position:absolute;
+
+    bottom:12px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:4;
+
+    background:rgba(255,248,225,.9);
+
+    color:#173130;
+
+    padding:5px 18px;
+
+    font-family:"Caveat",cursive;
+
+    font-size:20px;
+
+    white-space:nowrap;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+/* FEATURE */
+
+.feature{
+    min-height:100vh;
+
+    padding:120px 7vw;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+}
+
+.feature-wrapper{
+    max-width:1050px;
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.feature-photo{
+    position:relative;
+
+    padding:12px;
+
+    background:#f5ead0;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45);
+
+    transform:rotate(-2deg);
+
+    border-radius:8px 24px 12px 18px;
+}
+
+.feature-photo img{
+    width:100%;
+
+    display:block;
+
+    aspect-ratio:4/5;
+
+    object-fit:cover;
+
+    border-radius:4px 16px 8px 12px;
+}
+
+.tape{
+    position:absolute;
+
+    width:110px;
+    height:30px;
+
+    background:rgba(235,193,128,.65);
+
+    top:-15px;
+    left:50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-3deg);
+
+    z-index:4;
+}
+
+.feature-text{
+    padding:20px;
+}
+
+.feature-text small{
+    font-family:"Playfair Display",serif;
+
+    letter-spacing:4px;
+
+    color:#e5b875;
+
+    text-transform:uppercase;
+}
+
+.feature-text h2{
+    font-family:"DM Serif Display",serif;
+
+    font-size:clamp(45px,6vw,75px);
+
+    font-weight:400;
+
+    font-style:italic;
+
+    color:#fff0d2;
+
+    margin:20px 0;
+}
+
+.feature-text p{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:24px;
+
+    line-height:1.5;
+
+    color:#d9d1bd;
+}
+
+/* WATERMELON */
+
+.watermelon{
+    position:absolute;
+
+    font-size:clamp(80px,15vw,180px);
+
+    opacity:.08;
+
+    pointer-events:none;
+}
+
+.watermelon.one{
+    left:-30px;
+    top:15%;
+}
+
+.watermelon.two{
+    right:-30px;
+    bottom:10%;
+}
+
+/* FINAL */
+
+.final{
+    min-height:80vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:50px 20px;
+}
+
+.final-content{
+    max-width:800px;
+}
+
+.final-small{
+    font-family:"Playfair Display",serif;
+
+    letter-spacing:5px;
+
+    color:#d9b77e;
+
+    text-transform:uppercase;
+}
+
+.final h2{
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(70px,12vw,140px);
+
+    font-weight:400;
+
+    color:#ffc991;
+
+    margin:20px 0;
+}
+
+.final p{
+    font-family:"Cormorant Garamond",serif;
+
+    font-style:italic;
+
+    font-size:25px;
+
+    color:#ded5c4;
+
+    line-height:1.5;
+}
+
+/* BIRTHDAY CAKE */
+
+.cake-section{
+    min-height:80vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:100px 20px;
+
+    position:relative;
+}
+
+.cake-title{
+    font-family:"Playfair Display",serif;
+
+    font-size:14px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#e2b979;
+
+    margin-bottom:35px;
+}
+
+.cake{
+    position:relative;
+
+    width:220px;
+    height:150px;
+
+    margin-bottom:35px;
+}
+
+.cake-body{
+    position:absolute;
+
+    width:220px;
+    height:80px;
+
+    bottom:0;
+    left:0;
+
+    border-radius:12px 12px 20px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffd6a0,
+            #d98268
+        );
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.35);
+}
+
+.cake-body::before{
+    content:"";
+
+    position:absolute;
+
+    top:-18px;
+    left:0;
+
+    width:220px;
+    height:35px;
+
+    border-radius:50%;
+
+    background:#fff0d2;
+
+    box-shadow:
+        inset 0 -8px 0 rgba(220,130,110,.25);
+}
+
+.cake-body::after{
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+    height:12px;
+
+    left:25px;
+    top:25px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.35);
+}
+
+.candle{
+    position:absolute;
+
+    width:14px;
+    height:55px;
+
+    bottom:72px;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #fff0d2 0 8px,
+            #e9a46f 8px 16px
+        );
+
+    border-radius:3px;
+
+    z-index:3;
+}
+
+.candle:nth-child(1){
+    left:55px;
+}
+
+.candle:nth-child(2){
+    left:103px;
+}
+
+.candle:nth-child(3){
+    left:151px;
+}
+
+.flame{
+    position:absolute;
+
+    width:16px;
+    height:24px;
+
+    left:-1px;
+    top:-25px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #fff7b0 0 25%,
+            #ffb347 45%,
+            #ff7043 75%,
+            transparent 76%
+        );
+
+    filter:
+        drop-shadow(0 0 10px #ffb347);
+
+    animation:
+        flameFlicker .7s ease-in-out infinite alternate;
+}
+
+@keyframes flameFlicker{
+    from{
+        transform:scale(.9) rotate(-3deg);
+    }
+
+    to{
+        transform:scale(1.1) rotate(3deg);
+    }
+}
+
+.candle.blown .flame{
+    animation:none;
+
+    opacity:0;
+
+    transform:
+        translateY(-15px)
+        scale(.2);
+
+    transition:
+        opacity .4s ease,
+        transform .5s ease;
+}
+
+.smoke{
+    position:absolute;
+
+    width:8px;
+    height:30px;
+
+    left:3px;
+    top:-25px;
+
+    opacity:0;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(220,220,220,.45),
+            transparent
+        );
+
+    transform:translateY(0);
+}
+
+.candle.blown .smoke{
+    opacity:.7;
+
+    animation:smokeRise 2s ease-out forwards;
+}
+
+@keyframes smokeRise{
+    from{
+        opacity:.7;
+
+        transform:
+            translateY(0)
+            scale(.7);
+    }
+
+    to{
+        opacity:0;
+
+        transform:
+            translateY(-45px)
+            translateX(8px)
+            scale(1.5);
+    }
+}
+
+.blow-btn{
+    padding:14px 28px;
+
+    border:1px solid rgba(228,189,126,.4);
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(12px);
+
+    color:#ffca91;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.4s;
+}
+
+.blow-btn:hover{
+    transform:translateY(-4px);
+
+    background:rgba(255,190,110,.12);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+}
+
+.blow-message{
+    margin-top:25px;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:42px;
+
+    color:#ffc991;
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.blow-message.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* NAVIGATION */
+
+.page-navigation{
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:20px 20px 80px;
+
+    position:relative;
+
+    z-index:10;
+}
+
+.nav-btn{
+    display:inline-block;
+
+    padding:13px 25px;
+
+    border:1px solid rgba(228,189,126,.35);
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(12px);
+
+    color:#e5c58e;
+
+    text-decoration:none;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    transition:.4s;
+}
+
+.nav-btn:hover{
+    transform:translateY(-4px);
+
+    background:rgba(255,190,110,.12);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+}
+
+.nav-btn.primary{
+    background:rgba(255,190,110,.10);
+
+    border-color:rgba(255,202,145,.5);
+
+    color:#ffca91;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .hero{
+        min-height:600px;
+    }
+
+    .collage{
+        display:grid;
+
+        grid-template-columns:1fr 1fr;
+
+        grid-auto-rows:230px;
+
+        gap:12px;
+    }
+
+    .photo:nth-child(1){
+        grid-column:1 / 3;
+        grid-row:auto;
+    }
+
+    .photo:nth-child(2){
+        grid-column:1 / 2;
+        grid-row:auto;
+    }
+
+    .photo:nth-child(3){
+        grid-column:2 / 3;
+        grid-row:auto;
+    }
+
+    .photo:nth-child(4){
+        grid-column:1 / 3;
+        grid-row:auto;
+    }
+
+    .photo:nth-child(5){
+        grid-column:1 / 2;
+        grid-row:auto;
+    }
+
+    .photo:nth-child(6){
+        grid-column:2 / 3;
+        grid-row:auto;
+    }
+
+    .photo:nth-child(7){
+        grid-column:1 / 2;
+        grid-row:auto;
+    }
+
+    .photo:nth-child(8){
+        grid-column:2 / 3;
+        grid-row:auto;
+    }
+
+    .photo:nth-child(9){
+        grid-column:1 / 2;
+        grid-row:auto;
+    }
+
+    .photo:nth-child(10){
+        grid-column:2 / 3;
+        grid-row:auto;
+    }
+
+    .feature-wrapper{
+        grid-template-columns:1fr;
+
+        gap:50px;
+    }
+
+    .feature-text{
+        text-align:center;
+    }
+
+    .page-navigation{
+        flex-direction:column;
+
+        gap:14px;
+
+        padding-bottom:60px;
+    }
+
+    .nav-btn{
+        width:220px;
+
+        text-align:center;
+    }
+
+    .cake{
+        transform:scale(.9);
+    }
+
+    .blow-message{
+        font-size:35px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="grain"></div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div style="position:absolute;top:25px;left:0;right:0;text-align:center;z-index:20;">
+        <button id="pressMe" class="nav-btn primary" style="cursor:pointer;">
+            Press Me
+        </button>
+    </div>
+
+    <audio id="pressMeAudio" preload="auto" style="display:none;">
+        <source src="hp.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="sun"></div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            
+        </div>
+
+        <h1>
+            
+        </h1>
+
+        <h2>
+            your little pieces of happiness
+        </h2>
+
+        <div class="hero-line"></div>
+
+    </div>
+
+    <div class="scroll">
+        SCROLL TO EXPLORE ↓
+    </div>
+
+</section>
+
+<!-- MEMORIES -->
+
+<section class="memories">
+
+    <div class="section-title">
+
+        <span>
+             may you keep this smile forever
+        </span>
+
+        <h2>
+            Little pieces of you
+        </h2>
+
+    </div>
+
+    <div class="collage">
+
+        <div class="photo">
+
+            <img src="photos/photo1.jpg">
+
+            <div class="caption">
+                my favourite smile
+            </div>
+
+        </div>
+
+        <div class="photo">
+
+            <img src="photos/photo2.jpg">
+
+        </div>
+
+        <div class="photo">
+
+            <img src="photos/photo3.jpg">
+
+        </div>
+
+        <div class="photo">
+
+            <img src="photos/photo4.jpg">
+
+            <div class="caption">
+                you✨
+            </div>
+
+        </div>
+
+        <div class="photo">
+
+            <img src="photos/photo5.jpg">
+
+            <div class="caption">
+                always beautiful
+            </div>
+
+        </div>
+
+        <div class="photo">
+
+            <img src="photos/photo6.jpg">
+
+            <div class="caption">
+                ❤️
+            </div>
+
+        </div>
+
+        <div class="photo">
+
+            <img src="photos/photo7.jpg">
+
+        </div>
+
+        <div class="photo">
+
+            <img src="photos/photo8.jpg">
+
+        </div>
+
+        <div class="photo">
+
+            <img src="photos/photo9.jpg">
+
+        </div>
+
+        <div class="photo">
+
+            <img src="photos/photo10.jpg">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURE -->
+
+<section class="feature">
+
+    <div class="feature-wrapper">
+
+        <div class="feature-photo">
+
+            <div class="tape"></div>
+
+            <img src="photos/special.jpg">
+
+        </div>
+
+        <div class="feature-text">
+
+            <small>
+                
+            </small>
+
+            <h2>
+                And somehow,
+                you make everything
+                look beautiful.
+            </h2>
+
+            <p>
+                Out of all the pictures,
+                this one feels different.
+                Maybe because it's you.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="final">
+
+    <div class="final-content">
+
+        <div class="final-small">
+            And finally...
+        </div>
+
+        <h2>
+            It's you.
+        </h2>
+
+        <p>
+            Among all the moments, all the memories,
+            all the little things worth remembering —
+            somehow, you're my favourite one. ❤️
+        </p>
+
+    </div>
+
+</section>
+
+<!-- BIRTHDAY CAKE -->
+
+<section class="cake-section">
+
+    <div class="cake-title">
+        Make a wish...
+    </div>
+
+    <div class="cake">
+
+        <div class="candle">
+
+            <div class="flame"></div>
+
+            <div class="smoke"></div>
+
+        </div>
+
+        <div class="candle">
+
+            <div class="flame"></div>
+
+            <div class="smoke"></div>
+
+        </div>
+
+        <div class="candle">
+
+            <div class="flame"></div>
+
+            <div class="smoke"></div>
+
+        </div>
+
+        <div class="cake-body"></div>
+
+    </div>
+
+    <button class="blow-btn" id="blowCandles">
+        ✦ Blow the candles ✦
+    </button>
+
+    <div class="blow-message" id="blowMessage">
+        May all your wishes come true. ❤️
+    </div>
+
+</section>
+
+<!-- NAVIGATION -->
+
+<div class="page-navigation">
+
+    
+
+    <a href="letter.html" class="nav-btn primary">
+        Read My Letter →
+    </a>
+
+</div>
+
+</div>
+
+<script>
+
+const photos =
+document.querySelectorAll(".photo");
+
+const observer =
+new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.style.animationPlayState =
+                    "running";
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.2
+    }
+
+);
+
+photos.forEach(photo => {
+
+    photo.style.animationPlayState = "paused";
+
+    observer.observe(photo);
+
+});
+
+/* PRESS ME MUSIC */
+
+const pressMe =
+document.getElementById("pressMe");
+
+const pressMeAudio =
+document.getElementById("pressMeAudio");
+
+pressMe.addEventListener("click", () => {
+
+    pressMeAudio.play();
+
+});
+
+/* PARALLAX */
+
+window.addEventListener("scroll", () => {
+
+    const sun =
+        document.querySelector(".sun");
+
+    const scroll =
+        window.scrollY;
+
+    if(sun){
+
+        sun.style.transform =
+            `translateX(-50%) translateY(${scroll * .08}px)`;
+
+    }
+
+});
+
+/* BLOW CANDLES */
+
+const blowButton =
+    document.getElementById("blowCandles");
+
+const candles =
+    document.querySelectorAll(".candle");
+
+const blowMessage =
+    document.getElementById("blowMessage");
+
+blowButton.addEventListener("click", () => {
+
+    candles.forEach(candle => {
+
+        candle.classList.add("blown");
+
+    });
+
+    blowButton.textContent =
+        "✦ Make a wish ✦";
+
+    blowMessage.classList.add("show");
+
+});
+
+</script>
+
+</body>
+</html>
